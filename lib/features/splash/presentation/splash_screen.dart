@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// [A], [B], [C], [D];
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -20,7 +22,9 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override // [B]
   void initState() {
+    //[C]
     _controller = AnimationController(
+      // [D]
       vsync: this,
       duration: const Duration(seconds: 2),
     );
@@ -35,7 +39,16 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   /*
-   [B] @override ekhane prant class er methord override koreche ebong namer vul thakle error dekhay.  #BAD PRATICE(@override na likleo somossa hoy na)
+  [B] @override ekhane prant class er methord override koreche ebong namer vul thakle error dekhay.  #BAD PRATICE(@override na likleo somossa hoy na)
+   Benefit: @override likhle methord name vul thakle error dekhay. @override na likhle amar mote methord er name vul korle override nao hte pare.
+  
+  [C] initState(){} - prothome ekbar run hoy, jokhon ekbar State poriborton hoy. *State holo temporary data ja mutable & UI te poriborton ante pare.
+   
+  [D] AnimationController bebohar korchi animation korar jonne. 
+  Q. Keno "AnimationController ()" likhte hbe? ei namti evabei ba keno likhte hbe?
+  A. AnimationController() holo (import 'package:flutter/animation.dart';) ekhan theke eseche.
+  Q. ekhane to (import 'package:flutter/animation.dart';) package import kora hoyni tahole kaj korche kivabe?
+  A. (import 'package:flutter/material.dart';) er moddhe (import 'package:flutter/animation.dart';) package royeche..
    */
 
   @override
