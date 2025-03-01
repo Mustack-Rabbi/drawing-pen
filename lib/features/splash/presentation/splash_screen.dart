@@ -35,8 +35,9 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   /*
-   @override ekhane prant class er methord override koreche ebong namer vul thakle error dekhay.  #BAD PRATICE(@override na likleo somossa hoy na)
+   [B] @override ekhane prant class er methord override koreche ebong namer vul thakle error dekhay.  #BAD PRATICE(@override na likleo somossa hoy na)
    */
+
   @override
   void dispose() {
     _controller.dispose();
