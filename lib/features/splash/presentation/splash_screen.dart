@@ -9,10 +9,16 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
+  // [A]
   late AnimationController _controller;
   late Animation<double> _fadeAmination;
 
-  @override
+  /*
+  [A] এখানে with ব্যাবহার করছি Mixin এর জন্যে। Mixin এর কাজ 
+  হলো  একটি ক্লাস এর নির্দিষ্ট ফিচার অন্য ক্লাস এ যুক্ত করার জন্যে।
+  */
+
+  @override // [B]
   void initState() {
     _controller = AnimationController(
       vsync: this,
@@ -28,6 +34,9 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
   }
 
+  /*
+   @override ekhane prant class er methord override koreche ebong namer vul thakle error dekhay.  #BAD PRATICE(@override na likleo somossa hoy na)
+   */
   @override
   void dispose() {
     _controller.dispose();
