@@ -55,7 +55,38 @@ class _DrawScreenState extends State<DrawScreen> {
                 size: Size.infinite,
               ),
             ),
-          )
+          ),
+          _buildToolBar()
+        ],
+      ),
+    );
+  }
+
+  Widget _buildToolBar() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      color: Colors.grey[200],
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+              onPressed: _strokes.isNotEmpty
+                  ? () {
+                      setState(() {
+                        _redoStrokes.add(_strokes.removeLast());
+                      });
+                    }
+                  : null,
+              icon: Icon(Icons.undo)),
+          IconButton(
+              onPressed: _redoStrokes.isNotEmpty
+                  ? () {
+                      setState(() {
+                        _strokes.add(_redoStrokes.removeLast());
+                      });
+                    }
+                  : null,
+              icon: Icon(Icons.redo))
         ],
       ),
     );
