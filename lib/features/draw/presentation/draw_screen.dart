@@ -78,7 +78,7 @@ class DrawPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    //Draw completed dtrokes
+    //Draw completed strokes
 
     for (final stroke in strokes) {
       final paint = Paint()
@@ -86,7 +86,7 @@ class DrawPainter extends CustomPainter {
         ..strokeCap = StrokeCap.round
         ..strokeWidth = stroke.brushSize;
 
-      for (int i = 0; i < stroke.points.length; i++) {
+      for (int i = 0; i < stroke.points.length - 1; i++) {
         if (stroke.points[i] != Offset.zero &&
             stroke.points[i + 1] != Offset.zero) {
           canvas.drawLine(stroke.points[i], stroke.points[i + 1], paint);
@@ -98,7 +98,7 @@ class DrawPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round
       ..strokeWidth = currentBrushSize;
 
-    for (int i = 0; i < currentPaints.length; i++) {
+    for (int i = 0; i < currentPaints.length - 1; i++) {
       if (currentPaints[i] != Offset.zero &&
           currentPaints[i + 1] != Offset.zero) {
         canvas.drawLine(currentPaints[i], currentPaints[i + 1], paint);
